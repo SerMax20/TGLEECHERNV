@@ -1,10 +1,8 @@
-# Copyright (C) 2020 by surlogu@Github, < https://github.com/surlogu>.
-#
-# This file is part of < https://github.com/surlogu/AsEnLEECH > project,
-# and is released under the "GNU v3.0 License Agreement".
-# Please see < https://github.com/surlogu/AsEnLEECH/blob/master/LICENSE >
-#
-# All rights reserved.
+#!/usr/bin/env python3
+# -*- coding: utf-8 -*-
+# (c) Shrimadhav U K | gautamajay52
+
+# the logging things
 
 import logging
 logging.basicConfig(
@@ -66,17 +64,17 @@ if __name__ == "__main__" :
         workers=343
     )
     #
-   # incoming_message_handler = MessageHandler(
-    #    incoming_message_f,
-     #   filters=Filters.command([f"{LEECH_COMMAND}"]) & Filters.chat(chats=AUTH_CHANNEL)
-    #)
-    #app.add_handler(incoming_message_handler)
+    incoming_message_handler = MessageHandler(
+        incoming_message_f,
+        filters=Filters.command([f"{LEECH_COMMAND}"]) & Filters.chat(chats=AUTH_CHANNEL)
+    )
+    app.add_handler(incoming_message_handler)
     #
-    #incoming_gdrive_message_handler = MessageHandler(
-     #   incoming_gdrive_message_f,
-      #  filters=Filters.command([f"{GLEECH_COMMAND}"]) & Filters.chat(chats=AUTH_CHANNEL)
-    #)
-    #app.add_handler(incoming_gdrive_message_handler)
+    incoming_gdrive_message_handler = MessageHandler(
+        incoming_gdrive_message_f,
+        filters=Filters.command([f"{GLEECH_COMMAND}"]) & Filters.chat(chats=AUTH_CHANNEL)
+    )
+    app.add_handler(incoming_gdrive_message_handler)
     app.set_parse_mode("html")
     #
     incoming_telegram_download_handler = MessageHandler(
@@ -97,11 +95,11 @@ if __name__ == "__main__" :
     )
     app.add_handler(incoming_size_checker_handler)
     #
-    #incoming_youtube_dl_handler = MessageHandler(
-     #   incoming_youtube_dl_f,
-      #  filters=Filters.command([f"{YTDL_COMMAND}"]) & Filters.chat(chats=AUTH_CHANNEL)
-    #)
-    #app.add_handler(incoming_youtube_dl_handler)
+    incoming_youtube_dl_handler = MessageHandler(
+        incoming_youtube_dl_f,
+        filters=Filters.command([f"{YTDL_COMMAND}"]) & Filters.chat(chats=AUTH_CHANNEL)
+    )
+    app.add_handler(incoming_youtube_dl_handler)
     #
     status_message_handler = MessageHandler(
         status_message_f,
